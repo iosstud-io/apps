@@ -1423,7 +1423,7 @@
           <h2 id="1-introduction">1. Introduction</h2>
 
           <p>
-            This Privacy Policy explains how this Application handles
+            This Privacy Policy explains how the Pakturas Application handles
             information about you. By using the app, you agree to the practices
             described in this policy.
           </p>
@@ -1435,10 +1435,11 @@
           <h3 id="21-log-data">2.1 Log Data</h3>
 
           <p>
-            The Application collects log data to monitor app performance and
-            diagnose issues. This may include technical information such as
-            error reports, usage events, or system diagnostics. Logs are
-            collected and stored using Google App Engine, a third-party service.
+            The Pakturas Application collects log data to monitor app
+            performance and diagnose issues. This may include technical
+            information such as error reports, usage events, or system
+            diagnostics. Logs are collected and stored using Google App Engine,
+            a third-party service.
           </p>
 
           <h3 id="22-no-personal-data-collection">
@@ -1462,8 +1463,8 @@
 
           <p>
             We use log data solely to improve the performance, stability, and
-            functionality of the Application. This helps us ensure a reliable
-            user experience.
+            functionality of the Pakturas Application. This helps us ensure a
+            reliable user experience.
           </p>
 
           <p><br /></p>
@@ -1487,10 +1488,10 @@
           <h3 id="42-google-app-engine">4.2 Google App Engine</h3>
 
           <p>
-            The Application uses Google App Engine, operated by Google Inc., to
-            store anonymized activity log data. This data is used to improve the
-            app’s functionality. For more information on how Google App Engine
-            handles data, please review their privacy practices at
+            The Pakturas Application uses Google App Engine, operated by Google
+            Inc., to store anonymized activity log data. This data is used to
+            improve the app’s functionality. For more information on how Google
+            App Engine handles data, please review their privacy practices at
             <a href="https://policies.google.com/privacy"
               >Google’s Privacy Policy</a
             >.
@@ -1499,10 +1500,10 @@
           <h3 id="43-bugsnag">4.3 Bugsnag</h3>
 
           <p>
-            The Application uses Bugsnag to collect anonymized crash and error
-            data. This data is used to improve the performance, stability of the
-            Application. For more information on how Bugsnag handles data,
-            please review their privacy practices at
+            The Pakturas Application uses Bugsnag to collect anonymized crash
+            and error data. This data is used to improve the performance,
+            stability of the Application. For more information on how Bugsnag
+            handles data, please review their privacy practices at
             <a href="https://docs.bugsnag.com/legal/privacy-policy/"
               >Bugsnag’s Privacy Policy</a
             >.
@@ -1625,10 +1626,72 @@
 
           <p>
             <em
-              >Thank you for using our Application. Your privacy is important to
+              >Thank you for using Pakturas. Your privacy is important to
               us.</em
             >
           </p>
+          <script>
+            $(function () {
+              var apiURL = 'https://itunes.apple.com/lookup?id=6748280912'
+
+              $.getJSON(apiURL, function (json) {
+                if (json.results && json.results.length) {
+                  console.info('Image strings loaded from Apple API.')
+                  var appInfo = json.results[0]
+
+                  // Set favicon
+                  $('link[rel="shortcut icon"]').attr(
+                    'href',
+                    appInfo.artworkUrl512
+                  )
+
+                  // Set page title using the iOS app ID if it is not set manually in _config.yml
+                  var $pageTitle = $('.pageTitle')
+                  if ($.trim($($pageTitle).text()).length == 0) {
+                    $($pageTitle).html(appInfo.trackName)
+                  }
+
+                  // Set large app icon using the iOS app ID if it is not set manually in _config.yml
+                  var $appIconLarge = $('.appIconLarge')
+                  if (!$appIconLarge.attr('src')) {
+                    $($appIconLarge).attr('src', appInfo.artworkUrl512)
+                  }
+
+                  // Set header app icon using the iOS app ID if it is not set manually in _config.yml
+                  var $appIconHeader = $('.headerIcon')
+                  if (!$appIconHeader.attr('src')) {
+                    $($appIconHeader).attr('src', appInfo.artworkUrl512)
+                  }
+
+                  // Set app name using the iOS app ID if it is not set manually in _config.yml
+                  var $appName = $('.appName')
+                  if ($.trim($($appName).text()).length == 0) {
+                    $($appName).html(appInfo.trackName)
+                  }
+
+                  // Set the name displayed in the header if it is not set manually in _config.yml
+                  var $headerName = $('.headerName')
+                  if ($.trim($($headerName).text()).length == 0) {
+                    $($headerName).html(appInfo.trackName)
+                  }
+
+                  // Set price using the iOS app ID if it is not set manually in _config.yml
+                  var $appPrice = $('.appPrice')
+                  if ($.trim($($appPrice).text()).length == 0) {
+                    $($appPrice).html(appInfo.formattedPrice)
+                  }
+
+                  // Set App Store link using the iOS app ID if it is not set manually in _config.yml
+                  var $appStoreLink = $('.appStoreLink')
+                  if ($.trim($appStoreLink.attr('href')).length == 0) {
+                    $($appStoreLink).attr('href', appInfo.trackViewUrl)
+                  }
+
+                  console.info(appInfo)
+                }
+              })
+            })
+          </script>
         </article>
       </div>
     </div>
