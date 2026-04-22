@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base target="_blank" />
+
+    <title>Notado | AI Meeting Notes</title>
+    <meta name="apple-itunes-app" content="app-id=6760972229" />
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" />
+    <style>
+      html { font-size: 62.5%; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; line-height: 1; }
+      body { font-size: 2rem; background-color: #fff; -webkit-font-smoothing: antialiased; margin: 0; }
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      a { color: #5a31f4; text-decoration: none; transition: opacity 0.2s; }
+      a:hover { opacity: 0.8; }
+      
+      .container { display: grid; margin: auto; max-width: 1170px; padding: 0 15px; grid-template-columns: repeat(12, 1fr); }
+      header { grid-column: 1 / -1; display: flex; justify-content: space-between; align-items: center; height: 115px; }
+      .logo { font-weight: bold; font-size: 2.4rem; color: #000; }
+      
+      .lang-select {
+        appearance: none; -webkit-appearance: none; -moz-appearance: none;
+        font-size: 1.4rem; font-family: inherit; font-weight: 500; padding: 10px 36px 10px 16px;
+        border-radius: 10px; border: 1px solid #e1e4e8; background-color: #f6f8fa; color: #333;
+        cursor: pointer; outline: none; transition: all 0.2s ease;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%235a31f4' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+        background-repeat: no-repeat; background-position: right 12px center; background-size: 14px;
+      }
+      .lang-select:hover { background-color: #fff; border-color: #5a31f4; box-shadow: 0 2px 8px rgba(90, 49, 244, 0.1); }
+
+      .page { grid-column: 3/11; margin: 60px 0 70px; text-align: center; }
+      @media (max-width: 768px) { .page { grid-column: 1/-1; } header { height: 80px; } }
+
+      .hero-title { font-size: 4.5rem; font-weight: 800; margin-bottom: 20px; color: #000; letter-spacing: -1px; line-height: 1.1; }
+      .hero-sub { font-size: 2.2rem; color: #666; line-height: 1.5; margin-bottom: 40px; }
+      .app-store-badge img { height: 60px; }
+
+      .support-box { margin-top: 80px; padding: 40px; background-color: #f6f8fa; border-radius: 20px; text-align: left; }
+      .support-box h2 { font-size: 2.4rem; margin-bottom: 15px; color: #000; }
+      .support-box p { font-size: 1.8rem; color: #444; line-height: 1.8; }
+
+      footer { grid-column: 1 / -1; text-align: center; padding: 60px 0; border-top: 1px solid #eee; color: #888; font-size: 1.4rem; }
+      .footer-links { margin-top: 15px; }
+      .footer-links a { margin: 0 15px; }
+      
+      [data-lang]:not(.active-lang) { display: none; }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        <div class="logo">Notado</div>
+        <select class="lang-select" onchange="changeLang(this.value)">
+          <option value="en">English</option>
+          <option value="pt">Português (Brasil)</option>
+        </select>
+      </header>
+
+      <article class="page">
+        <div data-lang="en" class="active-lang">
+            <h1 class="hero-title">Transform your meetings into actions.</h1>
+            <p class="hero-sub">AI-powered transcription and summaries designed for iOS.<br>Captured by you, organized by Notado.</p>
+        </div>
+
+        <div data-lang="pt">
+            <h1 class="hero-title">Transforme suas reuniões em resultados.</h1>
+            <p class="hero-sub">Transcrição e resumos inteligentes com IA para iOS.<br>Você grava, o Notado organiza.</p>
+        </div>
+
+        <a href="https://apps.apple.com/app/id6760972229" class="app-store-badge">
+          <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store">
+        </a>
+
+        <div class="support-box">
+          <h2 data-lang="en" class="active-lang">Support</h2>
+          <h2 data-lang="pt">Suporte</h2>
+          
+          <p data-lang="en" class="active-lang">Questions? Reach out to our team.</p>
+          <p data-lang="pt">Dúvidas? Entre em contato com nosso time.</p>
+          
+          <p>
+            <strong>Email:</strong> 
+            <span data-lang="en" class="active-lang"><a href="mailto:contato@iosstud.io">hello@iosstud.io</a></span>
+            <span data-lang="pt"><a href="mailto:contato@iosstud.io">contato@iosstud.io</a></span>
+            <br>
+            <strong>WhatsApp:</strong> <a href="https://wa.me/5531920026926">+(55) 31 9200 26926</a>
+          </p>
+        </div>
+      </article>
+
+      <footer>
+        <p>&copy; 2026 iOS Studio. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="https://iosstud.io/meetingnotes/legal/privacy/" target="_self" data-lang="en" class="active-lang">Privacy Policy</a>
+          <a href="https://iosstud.io/meetingnotes/legal/privacy/" target="_self" data-lang="pt">Política de Privacidade</a>
+          
+          <a href="mailto:contato@iosstud.io" data-lang="en" class="active-lang">hello@iosstud.io</a>
+          <a href="mailto:contato@iosstud.io" data-lang="pt">contato@iosstud.io</a>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      function changeLang(lang) {
+        const enElements = document.querySelectorAll('[data-lang="en"]');
+        const ptElements = document.querySelectorAll('[data-lang="pt"]');
+        
+        if (lang === 'en') {
+          enElements.forEach(el => el.classList.add('active-lang'));
+          ptElements.forEach(el => el.classList.remove('active-lang'));
+        } else {
+          enElements.forEach(el => el.classList.remove('active-lang'));
+          ptElements.forEach(el => el.classList.add('active-lang'));
+        }
+      }
+    </script>
+  </body>
+</html>
